@@ -100,6 +100,13 @@ let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 
 // Generic function example
+//Simple example of generic type
+function display<T>(item: T): void {
+  console.log(item);
+}
+
+display("Hello");
+
 //generic function syntax: function name<T>(parameter: T[]): T | undefined { body }
 //T is a generic type parameter
 function firstElement<T>(arr: T[]): T | undefined {
