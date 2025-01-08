@@ -117,25 +117,36 @@ function firstElement<T>(arr: T[]): T | undefined {
 const numbers2 = firstElement([1, 2, 3]); // Type is number
 const strings = firstElement(["a", "b", "c"]); // Type is string
 
-// Class example with interface implementation
-//interface syntax: interface name { properties }
-interface Animal {
-  name: string;
-  //void is a type that represents the absence of a value
+//Interface used for a class
+interface Speak {
+  // function that makeSound
   makeSound(): void;
 }
-
-//Implementing an interface
-//makeSound is a method that must be implemented by any class that implements the Animal interface
-class Dog implements Animal {
+interface Animal {
   name: string;
-
-  constructor(name: string) {
+  breed: string;
+}
+//I can use this interface to make classes
+class Dog implements Speak, Animal {
+  name: string;
+  breed: string;
+  constructor(name: string, breed: string) {
     this.name = name;
+    this.breed = breed;
   }
-
   makeSound(): void {
-    console.log("Woof!");
+    console.log("Woof");
+  }
+}
+class Cat implements Speak, Animal {
+  name: string;
+  breed: string;
+  constructor(name: string, breed: string) {
+    this.name = name;
+    this.breed = breed;
+  }
+  makeSound(): void {
+    console.log("Meow");
   }
 }
 
